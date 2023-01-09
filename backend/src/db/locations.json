@@ -1,0 +1,38 @@
+[
+    {
+        "_id": "3617",
+        "site": "East Building",
+        "room": "EC-003",
+        "description": "1"
+    },
+    {
+        "_id": "3923",
+        "site": "East Building",
+        "room": "EM-203",
+        "description": "1"
+    },
+    {
+        "_id": "8265",
+        "site": "West Building",
+        "room": "M-016",
+        "description": "1"
+    },
+    {
+        "_id": "9752",
+        "site": "West Building",
+        "room": "G-003",
+        "description": "1"
+    },
+    {
+        "_id": "10353",
+        "site": "West Building",
+        "room": "M-113",
+        "description": "1"
+    },
+    {
+        "_id": "10382",
+        "site": "West Building",
+        "room": "M-127",
+        "description": "1"
+    }
+]

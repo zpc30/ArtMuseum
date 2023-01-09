@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row border mt-3 rounded" *ngFor="let item of exebitions">
+        <div class="col">
+            <h3><a [routerLink]="[item._id]">{{item.title}}</a></h3>
+            <p>{{item.location.site}}, {{item.location.room}}</p>
+            <p>{{item.description}}</p>
+        </div>
+    </div>
+</div>

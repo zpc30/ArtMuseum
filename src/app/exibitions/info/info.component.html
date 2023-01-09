@@ -1,0 +1,98 @@
+ <div class="container">
+    <div class="row">
+        <div class="col border p-3">
+            <h3>{{exibition.title}}</h3>
+            <p>{{exibition.location.site}}, {{exibition.location.room}}</p>
+            <p>{{exibition.description}}</p>
+            <div class="row">
+                <div class="col-11"></div>
+                <div class="col">
+                    <button *ngIf="btnShow" (click)="showTable()" class="btn btn-dark">Edit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" *ngIf="show">
+        <div class="row">
+                <div class="col">
+                    <form [formGroup]="form" >
+                        <input formControlName="author" class="form-control-sm" type="text" placeholder="Author">
+                        <button (click)="filterTable()" class="d-inline btn btn-dark">Search</button>
+                    </form>
+                </div>
+                <div class="col-6"></div>
+                <div class="col">
+                    <button class="btn btn-dark" (click)="hideTable()">Done</button>
+                </div>
+        </div>    
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let art of allArt">
+                        <td>{{art.title}}</td>
+                        <td>{{art.author}}</td>
+                        <td><button (click)="addArt(art,art._id)" class="btn btn-dark">Add</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of artworks">
+                        <td>{{item.title}}</td>
+                        <td>{{item.author}}</td>
+                        <td><button (click)="deleteArt(item,item._id)" class="btn btn-dark">Remove</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6" *ngFor="let item of artworks">
+            <div class="row mt-2 border p-3" (click)="open(content)">
+                <div class="col" >
+                    <h4>{{item.title}}</h4>
+                    <h6>{{item.author}}  {{item.beginYear}}-{{item.endYear}}</h6>
+                    <p>{{item.medium}}</p>
+                </div>
+                <div class="col-5">
+                    <img width="100%" src="http://localhost:3000/image/{{item.imageId}}.jpg" alt="">
+                </div>
+                <ng-template #content let-offcanvas>
+                    <div class="offcanvas-header container-fluid">
+                        <img width="100%" src="http://localhost:3000/image/{{item.imageId}}.jpg" alt="">
+                    </div>
+                    <div class="offcanvas-body">
+                        <div class="col">
+                            <h4>{{item.title}}</h4>
+                            <h6>{{item.author}}  {{item.beginYear}}-{{item.endYear}}</h6>
+                            <p>{{item.medium}}</p>
+                            <p>{{item.dimensions}}</p>
+                            <br>
+                            <p>{{item.description}}</p>
+                        </div>
+                        <div class="col-5">
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </div>
+</div>
+
+
